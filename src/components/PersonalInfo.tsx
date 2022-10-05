@@ -40,11 +40,11 @@ export const GithubLink: FC = () => {
     return (
         <a
             className={style.githubLink}
-            href="https://github.com/StreakingMan/solvable-sheep-game"
+            href="https://github.com/MilkyBoat/solvable-sheep-game"
             target="_blank"
             rel="noreferrer"
         >
-            @StreakingMan
+            特邀 @MilkyBoat
         </a>
     );
 };
@@ -53,11 +53,11 @@ export const BiliBiliLink: FC = () => {
     return (
         <a
             className={style.bilibiliLink}
-            href="https://space.bilibili.com/18424564"
+            href="https://space.bilibili.com/27231830"
             target="_blank"
             rel="noreferrer"
         >
-            @streaking_man
+            @举苯欲饮无管弦
         </a>
     );
 };

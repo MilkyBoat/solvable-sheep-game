@@ -29,6 +29,16 @@ export const Info: FC = () => {
                     3 Tiles
                 </a>
             </p>
+            <p>
+                项目来源
+                <a
+                    href="https://github.com/StreakingMan/solvable-sheep-game"
+                    target="_blank"
+                    rel="noreferrer"
+                >
+                    GitHub：@StreakingMan
+                </a>
+            </p>
             <p>仅供交流，禁止商用</p>
             <div className={style.close} onClick={() => setOpen(false)}>
                 X

@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import './styles/global.scss';
 import './styles/utils.scss';
-import Bmob from 'hydrogen-js-sdk';
 import {
     DEFAULT_BGM_STORAGE_KEY,
     domRelatedOptForTheme,
@@ -50,61 +49,10 @@ const successTrans = (theme: Theme<any>) => {
 // 从url初始化主题
 const customThemeIdFromPath = parsePathCustomThemeId(location.href);
 
-// Bmob初始化
-// @ts-ignore
-Bmob.initialize(
-    import.meta.env.VITE_BMOB_SECRETKEY,
-    import.meta.env.VITE_BMOB_SECCODE
-);
-
 const loadTheme = () => {
     // 请求主题
-    if (customThemeIdFromPath) {
-        const storageTheme = localStorage.getItem(customThemeIdFromPath);
-        if (storageTheme) {
-            try {
-                const customTheme = JSON.parse(storageTheme);
-                successTrans(customTheme);
-            } catch (e) {
-                errorTip('主题配置解析失败');
-            }
-        } else {
-            Bmob.Query('config')
-                .get(customThemeIdFromPath)
-                .then((res) => {
-                    const { content } = res as any;
-                    localStorage.setItem(customThemeIdFromPath, content);
-                    try {
-                        const customTheme = JSON.parse(content);
-                        successTrans(customTheme);
-                    } catch (e) {
-                        errorTip('主题配置解析失败');
-                    }
-                })
-                .catch(({ error }) => {
-                    errorTip(error);
-                });
-        }
-    } else {
-        successTrans(getDefaultTheme());
-    }
+    successTrans(getDefaultTheme());
 };
 
 // 音效资源请求
-if (!localStorage.getItem(DEFAULT_BGM_STORAGE_KEY)) {
-    const query = Bmob.Query('file');
-    query.equalTo('type', '==', 'default');
-    query
-        .find()
-        .then((results) => {
-            for (const file of results as any) {
-                localStorage.setItem(file.name, file.base64);
-            }
-            loadTheme();
-        })
-        .catch(({ error }) => {
-            errorTip(error);
-        });
-} else {
-    loadTheme();
-}
+loadTheme();

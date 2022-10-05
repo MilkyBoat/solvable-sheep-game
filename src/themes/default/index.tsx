@@ -1,4 +1,3 @@
-// 骚猪主题
 import React from 'react';
 import { Theme } from '../interface';
 import bgm from './sounds/bgm.mp3';
@@ -25,15 +24,19 @@ const images = Object.entries(imagesUrls).map(([key, value]) => ({
     content: <img src={value} alt="" />,
 }));
 
-export const pddTheme: Theme<string> = {
-    title: '🐷猪了个猪🐷',
-    desc: '感谢 @猪酱的日常 提供素材',
-    bgm: bgm,
-    icons: images.map(({ name, content }) => ({
-        name,
-        content,
-        clickSound: 'button-click',
-        tripleSound: name,
-    })),
-    sounds,
+export const getDefaultTheme: () => Theme<string> = () => {
+    return {
+        title: '🐱猫了个鼠🐭',
+        desc: '这里来点文案',
+        dark: true,
+        backgroundColor: '#8dac85',
+        bgm: bgm,
+        icons: images.map(({ name, content }) => ({
+            name,
+            content,
+            clickSound: 'button-click',
+            tripleSound: name,
+        })),
+        sounds,
+    };
 };

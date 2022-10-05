@@ -34,7 +34,7 @@ export const getDefaultTheme: () => Theme<string> = () => {
         icons: images.map(({ name, content }) => ({
             name,
             content,
-            clickSound: 'button-click',
+            clickSound: 'sound-shift',
             tripleSound: name,
         })),
         sounds,

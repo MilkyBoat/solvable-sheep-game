@@ -12,11 +12,11 @@ export const Info: FC = () => {
             <p>
                 bgm素材：
                 <a
-                    href="https://www.bilibili.com/video/BV1zs411S7sz/"
+                    href="https://www.bilibili.com/video/BV1rS4y1x7Gv/"
                     target="_blank"
                     rel="noreferrer"
                 >
-                    洛天依，言和原创《普通DISCO》
+                    淦得蒸蚌
                 </a>
             </p>
             <p>

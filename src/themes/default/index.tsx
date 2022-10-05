@@ -12,7 +12,7 @@ const sounds = Object.entries(soundUrls).map(([key, value]) => ({
     src: value,
 })) as Theme<string>['sounds'];
 
-const imagesUrls = import.meta.glob('./images/*.png', {
+const imagesUrls = import.meta.glob('./images/*.jpg', {
     import: 'default',
     eager: true,
 });
@@ -27,9 +27,9 @@ const images = Object.entries(imagesUrls).map(([key, value]) => ({
 export const getDefaultTheme: () => Theme<string> = () => {
     return {
         title: '🐱猫了个鼠🐭',
-        desc: '这里来点文案',
+        desc: 'bilibili @举苯欲饮无管弦 @辣稽小辣稽',
         dark: true,
-        backgroundColor: '#8dac85',
+        backgroundColor: '#75b7cf',
         bgm: bgm,
         icons: images.map(({ name, content }) => ({
             name,

@@ -139,7 +139,7 @@ const Symbol: FC<SymbolProps> = ({ x, y, icon, isCover, status, onClick }) => {
         >
             <div
                 className="symbol-inner"
-                style={{ opacity: isCover ? 0.4 : 1 }}
+                style={{ opacity: isCover ? 0.1 : 1 }}
             >
                 {typeof icon.content === 'string' ? (
                     icon.content.startsWith('http') ? (

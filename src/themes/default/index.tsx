@@ -50,7 +50,7 @@ export const getDefaultTheme: () => Theme<string> = () => {
         icons: images.map(({ name, content }) => ({
             name,
             content,
-            clickSound: 'sound-shift',
+            clickSound: '0',
             tripleSound: name,
         })),
         sounds,

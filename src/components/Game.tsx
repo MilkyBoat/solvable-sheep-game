@@ -276,9 +276,9 @@ const Game: FC<{
             find.y = 800;
             checkCover(scene);
             // 音效
-            if (soundRefMap.current?.['sound-shift']) {
-                soundRefMap.current['sound-shift'].currentTime = 0;
-                soundRefMap.current['sound-shift'].play();
+            if (soundRefMap.current?.['0']) {
+                soundRefMap.current['0'].currentTime = 0;
+                soundRefMap.current['0'].play();
             }
         }
     };
@@ -296,9 +296,9 @@ const Game: FC<{
             find.status = 0;
             checkCover(scene);
             // 音效
-            if (soundRefMap.current?.['sound-undo']) {
-                soundRefMap.current['sound-undo'].currentTime = 0;
-                soundRefMap.current['sound-undo'].play();
+            if (soundRefMap.current?.['0']) {
+                soundRefMap.current['0'].currentTime = 0;
+                soundRefMap.current['0'].play();
             }
         }
     };
@@ -308,9 +308,9 @@ const Game: FC<{
         setScore(score - 1);
         checkCover(washScene(level, scene));
         // 音效
-        if (soundRefMap.current?.['sound-wash']) {
-            soundRefMap.current['sound-wash'].currentTime = 0;
-            soundRefMap.current['sound-wash'].play();
+        if (soundRefMap.current?.['0']) {
+            soundRefMap.current['0'].currentTime = 0;
+            soundRefMap.current['0'].play();
         }
     };
 

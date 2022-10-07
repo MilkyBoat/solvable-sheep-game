@@ -7,22 +7,38 @@ const soundUrls = import.meta.glob('./sounds/*.mp3', {
     eager: true,
 });
 
-const sounds = Object.entries(soundUrls).map(([key, value]) => ({
-    name: key.slice(9, -4),
-    src: value,
-})) as Theme<string>['sounds'];
+const sounds = Object.entries(soundUrls).map(([key, value]) => {
+    const { MODE, VITE_STATIC_CDN_URL } = import.meta.env;
+    const filename = key.slice(9);
+    let soundShortUrl = `${VITE_STATIC_CDN_URL}/${filename}`;
+    if (MODE === 'development') {
+        soundShortUrl = new URL(`./sounds/${filename}`, import.meta.url).href;
+    }
+    return {
+        name: filename.slice(0, -4),
+        src: soundShortUrl,
+    };
+}) as Theme<string>['sounds'];
 
 const imagesUrls = import.meta.glob('./images/*.jpg', {
     import: 'default',
     eager: true,
 });
 
-const images = Object.entries(imagesUrls).map(([key, value]) => ({
-    name: key.slice(9, -4),
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    content: <img src={value} alt="" />,
-}));
+const images = Object.entries(imagesUrls).map(([key, value]) => {
+    const { MODE, VITE_STATIC_CDN_URL } = import.meta.env;
+    const filename = key.slice(9);
+    let imageShortUrl = `${VITE_STATIC_CDN_URL}/${filename}`;
+    if (MODE === 'development') {
+        imageShortUrl = new URL(`./images/${filename}`, import.meta.url).href;
+    }
+    return {
+        name: filename.slice(0, -4),
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        content: <img src={imageShortUrl} alt="" />,
+    };
+});
 
 export const getDefaultTheme: () => Theme<string> = () => {
     return {
